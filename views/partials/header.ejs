@@ -13,9 +13,9 @@
 			--brand-outline: #000000; /* outlines and borders */
 			--brand-navy: #0C1A2C;   /* dark navy for text if needed */
 			--alt-blue: #0085CF;     /* alternating section/background blue */
-			--cta-red: #7A2F59;      /* CTA purple (was red) */
+			--cta-red: var(--brand-lime);      /* CTA now yellow */
 			/* Map legacy tokens used across templates */
-			--brand-red: var(--cta-red);
+			--brand-red: var(--brand-lime);
 			--brand-yellow: var(--brand-lime);
 		}
 		img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
@@ -55,8 +55,8 @@
 			--brand-outline: #000000 !important;
 			--brand-navy: #0C1A2C !important;
 			--alt-blue: #0085CF !important;
-			--cta-red: #7A2F59 !important;
-			--brand-red: var(--cta-red) !important; 
+			--cta-red: var(--brand-lime) !important;
+			--brand-red: var(--brand-lime) !important; 
 			--brand-yellow: var(--brand-lime) !important; 
 		}
 		/* Header banner and navbar */
