@@ -1,25 +1,42 @@
 </main>
-        <footer id="footer" class="footer">
+        <footer id="footer" class="footer" style="color: var(--brand-lime) !important;">
             <style>
-              /* Footer brand theme: logo yellow background, gator green text */
+              /* Footer brand theme: main green background */
               .footer, .footer * { box-sizing: border-box; }
-              .footer { background: var(--brand-lime); border-top: 4px solid var(--brand-blue); }
-              .footer .links-wrapper, .footer .branding-wrapper { color: var(--brand-blue); }
+              .footer { background: var(--brand-blue); border-top: 4px solid var(--brand-outline); }
+              .footer .links-wrapper, .footer .branding-wrapper { color: var(--brand-lime); }
               .footer .widget-title,
-              .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 { color: var(--brand-blue) !important; }
-              .footer p, .footer li, .footer small, .footer span { color: var(--brand-blue) !important; }
-              .footer a { color: var(--brand-blue) !important; }
-              .footer a:hover, .footer a:focus { color: #145E2A !important; opacity: 0.95; text-decoration: underline; }
-              .footer .terms-policy a { color: var(--brand-blue) !important; }
-              /* Social icons: solid gator green via CSS mask */
-              .footer .social-icon { display: inline-block; width: 28px; height: 28px; background-color: var(--brand-blue) !important; }
+              .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 { color: var(--brand-lime) !important; }
+              .footer p, .footer li, .footer small, .footer span { color: var(--brand-lime) !important; }
+              .footer a { color: var(--brand-lime) !important; }
+              .footer a:hover, .footer a:focus { color: var(--brand-lime) !important; opacity: 0.95; text-decoration: underline; }
+              .footer .terms-policy a { color: var(--brand-lime) !important; }
+              /* Social icons: masked, now yellow per request */
+              .footer .social-icon { display: inline-block; width: 28px; height: 28px; background-color: var(--brand-lime) !important; }
               .footer .social-icon { -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; -webkit-mask-size: contain; mask-repeat: no-repeat; mask-position: center; mask-size: contain; }
               .footer .social-icon.facebook { -webkit-mask-image: url('/wp-content/themes/resi-franchise/images/social/facebook.svg'); mask-image: url('/wp-content/themes/resi-franchise/images/social/facebook.svg'); }
               .footer .social-icon.instagram { -webkit-mask-image: url('/wp-content/themes/resi-franchise/images/social/instagram.svg'); mask-image: url('/wp-content/themes/resi-franchise/images/social/instagram.svg'); }
               .footer .social-icon.youtube { -webkit-mask-image: url('/wp-content/themes/resi-franchise/images/social/youtube.svg'); mask-image: url('/wp-content/themes/resi-franchise/images/social/youtube.svg'); }
               .footer .social-icon.linkedin { -webkit-mask-image: url('/wp-content/themes/resi-franchise/images/social/linkedin.svg'); mask-image: url('/wp-content/themes/resi-franchise/images/social/linkedin.svg'); }
               .footer .social-icons-wrapper a:hover .social-icon,
-              .footer .social-icons-wrapper a:focus .social-icon { background-color: #145E2A !important; }
+              .footer .social-icons-wrapper a:focus .social-icon { background-color: var(--brand-lime) !important; }
+
+              /* High-specificity lock: make all footer text/link colors yellow */
+              #footer, #footer *, #footer a, #footer a:visited, #footer a:active,
+              #footer .widget_nav_menu a, #footer .menu a,
+              #footer .terms-policy a,
+              #footer p, #footer li, #footer small, #footer span, #footer strong, #footer b, #footer em {
+                color: var(--brand-lime) !important;
+              }
+
+              /* Explicit link state overrides to beat theme rules */
+              #footer a, #footer a:link, #footer a:visited, #footer a:hover, #footer a:focus, #footer a:active,
+              #footer .widget_nav_menu a, #footer .widget_nav_menu a:link, #footer .widget_nav_menu a:visited,
+              #footer .widget_nav_menu a:hover, #footer .widget_nav_menu a:focus, #footer .widget_nav_menu a:active,
+              #footer .terms-policy a, #footer .terms-policy a:link, #footer .terms-policy a:visited,
+              #footer .terms-policy a:hover, #footer .terms-policy a:focus, #footer .terms-policy a:active {
+                color: var(--brand-lime) !important;
+              }
             </style>
             <div class="container">
                 <div class="links-wrapper">

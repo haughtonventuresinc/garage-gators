@@ -6,10 +6,16 @@
 	<style>
 		/* Brand palette */
 		:root {
-			--brand-blue: #1E7A3A;   /* primary: gator green */
-			--brand-lime: #F4D21F;   /* secondary: logo yellow */
+			/* Core palette */
+			--brand-blue: #1E9637;   /* primary: gator green */
+			--brand-blue-dark: #136827; /* darker gator green for hover */
+			--brand-lime: #F4D130;   /* secondary: logo yellow */
+			--brand-outline: #000000; /* outlines and borders */
+			--brand-navy: #0C1A2C;   /* dark navy for text if needed */
+			--alt-blue: #0085CF;     /* alternating section/background blue */
+			--cta-red: #7A2F59;      /* CTA purple (was red) */
 			/* Map legacy tokens used across templates */
-			--brand-red: var(--brand-blue);
+			--brand-red: var(--cta-red);
 			--brand-yellow: var(--brand-lime);
 		}
 		img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
@@ -43,23 +49,28 @@
 	<!-- Late brand override to ensure palette wins over bundled CSS -->
 	<style>
 		:root { 
-			--brand-blue: #1E7A3A !important;  /* gator green */
-			--brand-lime: #F4D21F !important;  /* logo yellow */
-			--brand-red: var(--brand-blue) !important; 
+			--brand-blue: #1E9637 !important;  /* gator green */
+			--brand-blue-dark: #136827 !important; /* darker gator green */
+			--brand-lime: #F4D130 !important;  /* logo yellow */
+			--brand-outline: #000000 !important;
+			--brand-navy: #0C1A2C !important;
+			--alt-blue: #0085CF !important;
+			--cta-red: #7A2F59 !important;
+			--brand-red: var(--cta-red) !important; 
 			--brand-yellow: var(--brand-lime) !important; 
 		}
 		/* Header banner and navbar */
 		.banner-wrapper { background-color: var(--brand-blue) !important; }
-		#header.navbar { background-color: var(--brand-lime) !important; border-bottom: 3px solid var(--brand-blue) !important; }
-		#header .nav-link { color: var(--brand-blue) !important; }
-		#header .nav-link:hover { color: #145E2A !important; }
-		#header .dropdown-item:hover { background: var(--brand-lime) !important; color: #0E3D1F !important; }
+		#header.navbar { background-color: var(--brand-blue) !important; border-bottom: 3px solid var(--brand-outline) !important; }
+		#header .nav-link { color: var(--brand-lime) !important; }
+		#header .nav-link:hover { color: #FFFFFF !important; }
+		#header .dropdown-item:hover { background: var(--brand-blue-dark) !important; color: var(--brand-lime) !important; }
 
 		/* Global component overrides */
-		.btn-primary, .btn-brand-primary { background-color: var(--brand-blue) !important; border-color: var(--brand-blue) !important; color: #fff !important; }
+		.btn-primary, .btn-brand-primary { background-color: var(--cta-red) !important; border-color: var(--cta-red) !important; color: #fff !important; }
 		.btn-outline-secondary { border-color: var(--brand-blue) !important; color: var(--brand-blue) !important; }
-		.btn-outline-secondary:hover { background: var(--brand-lime) !important; border-color: var(--brand-lime) !important; color: #0E3D1F !important; }
-		.badge, .label { background: var(--brand-lime) !important; color: #0E3D1F !important; }
+		.btn-outline-secondary:hover { background: var(--brand-lime) !important; border-color: var(--brand-lime) !important; color: var(--brand-blue-dark) !important; }
+		.badge, .label { background: var(--brand-lime) !important; color: var(--brand-blue) !important; }
 		.bg-warning, .bg-danger, .bg-primary { background-color: var(--brand-blue) !important; }
 		.text-danger, .text-primary { color: var(--brand-blue) !important; }
 		.border-primary { border-color: var(--brand-lime) !important; }
@@ -76,7 +87,7 @@
 	<meta name="msapplication-TileImage" content="/pictures/favicon/garage-gators/favicon-192x192.png" />
 	<style>
 		/* Global top banner styles */
-		.banner-wrapper { background-color: var(--brand-red); }
+		.banner-wrapper { background-color: var(--brand-blue); }
 		.banner-wrapper .banner-header { 
 			margin: 0; 
 			text-align: center; 
@@ -86,14 +97,16 @@
 			padding: 8px 0;
 		}
 		.banner-wrapper .banner-header a { 
-			background: transparent;
-			color: var(--brand-lime) !important; 
+			background: var(--brand-lime) !important;
+			color: var(--brand-blue) !important; 
 			text-decoration: none; 
 			display: inline-block; 
 			padding: 4px 10px;
 			border-radius: 6px;
 		}
-		.banner-wrapper .banner-header a:hover { text-decoration: underline; filter: none; }
+		/* Reinforce banner CTA color lock */
+		.banner-wrapper .banner-header a.banner-cta { background: var(--brand-lime) !important; color: var(--brand-blue) !important; }
+		.banner-wrapper .banner-header a:hover { background: var(--brand-lime) !important; color: var(--brand-blue) !important; text-decoration: none; filter: none; }
 		/* Header layout adjustments */
 		#header .container { position: relative; }
 		#header .mbl-nav-wrapper { display: flex; align-items: center; justify-content: center; position: relative; width: 100%; }
@@ -107,14 +120,14 @@
 		}
 
 		/* Brand theming for navbar */
-		#header.navbar { background-color: var(--brand-lime) !important; border-bottom: 3px solid var(--brand-blue) !important; }
-		#header .nav-link { color: var(--brand-blue) !important; font-weight: 600; }
-		#header .nav-link:hover, #header .nav-link:focus { color: #145E2A !important; }
+		#header.navbar { background-color: var(--brand-blue) !important; border-bottom: 3px solid var(--brand-outline) !important; }
+		#header .nav-link { color: var(--brand-lime) !important; font-weight: 600; }
+		#header .nav-link:hover, #header .nav-link:focus { color: #FFFFFF !important; }
 		#header .dropdown-menu { border-radius: 10px; border-color: rgba(11,94,142,.15); }
-		#header .dropdown-item:hover, #header .dropdown-item:focus { background: var(--brand-yellow); color: #0E3D1F; }
+		#header .dropdown-item:hover, #header .dropdown-item:focus { background: var(--brand-blue-dark); color: var(--brand-lime); }
 
 		/* Primary buttons in header context */
-		.btn.btn-brand-primary { background-color: var(--brand-red) !important; border-color: var(--brand-red) !important; color: #fff; }
+		.btn.btn-brand-primary { background-color: var(--cta-red) !important; border-color: var(--cta-red) !important; color: #fff; }
 		.btn.btn-brand-primary:hover { filter: brightness(1.05); box-shadow: 0 6px 16px rgba(11,94,142,.28); }
 
 		/* Site loader overlay */
@@ -262,7 +275,7 @@
 		<header>
 			<div class="banner-wrapper">
 				<div class="col-sm-12 banner-wrapper">
-					<h6 class="banner-header"><a href="#" data-zip-trigger="1" role="button">Get Free Estimate</a></h6>
+					<h6 class="banner-header"><a href="#" class="banner-cta" data-zip-trigger="1" role="button" style="background: var(--brand-lime) !important; background-color: var(--brand-lime) !important; color: var(--brand-blue) !important; border: 1px solid var(--brand-outline) !important; padding: 6px 12px !important; border-radius: 6px !important;">Get Free Estimate</a></h6>
 				</div>
 			</div>
 			<nav id="header" class="navbar navbar-expand-md justify-content-center navbar-light">

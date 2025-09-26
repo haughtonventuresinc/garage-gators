@@ -108,7 +108,8 @@
   .hero-aesthetic .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(11, 94, 142, 0.45) 0%, rgba(11, 94, 142, 0.25) 40%, rgba(11, 94, 142, 0.45) 100%);
+    /* switch overlay to brand green gradient */
+    background: linear-gradient(180deg, rgba(30, 150, 55, 0.45) 0%, rgba(30, 150, 55, 0.25) 40%, rgba(30, 150, 55, 0.45) 100%);
     pointer-events: none;
   }
   
@@ -127,14 +128,14 @@
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
-    color: #fff;
+    color: var(--brand-lime);
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     margin-bottom: 1.5rem;
   }
   .hero-aesthetic .hero-description {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--brand-lime);
     max-width: 500px;
     margin-bottom: 2rem;
     margin-left: auto;
@@ -163,9 +164,9 @@
     transition: all 0.3s ease;
   }
   .hero-aesthetic .btn-outline-light:hover {
-    background-color: rgba(184, 226, 21, 0.15); /* lime tint */
-    border-color: var(--brand-yellow);
-    color: var(--brand-blue); /* blue text on lime */
+    background-color: var(--brand-lime) !important; /* solid yellow */
+    border-color: var(--brand-yellow) !important;
+    color: var(--brand-blue) !important; /* green text on yellow */
     transform: translateY(-2px);
   }
   
@@ -442,14 +443,14 @@
 <!-- Page-scoped styles: Blog, Warranty, Reviews, CTA modern refresh -->
 <style>
   /* Blog Featured */
-  .blogFeat { padding: 3rem 0 2rem; }
+  .blogFeat { padding: 3rem 0 2rem; background: var(--brand-blue) !important; color: var(--brand-lime) !important; }
   .blogFeat .content-wrapper > h4 {
-    letter-spacing: .12em; font-weight: 800; color: var(--brand-red); opacity: .9; margin-bottom: .25rem;
+    letter-spacing: .12em; font-weight: 800; color: var(--brand-lime) !important; opacity: 1; margin-bottom: .25rem;
   }
-  .blogFeat .content-wrapper > .section-title { margin-bottom: 1.5rem; }
+  .blogFeat .content-wrapper > .section-title { margin-bottom: 1.5rem; color: var(--brand-lime) !important; }
   /* Blog slider */
   .blog-slider { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .5rem; }
-  .blog-slider .blog-nav { background: var(--brand-red); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; font-size: 1.5rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+  .blog-slider .blog-nav { background: var(--brand-blue); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; font-size: 1.5rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(0,0,0,.18); }
   .blog-slider .blog-nav:hover { filter: brightness(1.05); }
   .blog-slider .blog-nav:disabled { opacity: .45; cursor: default; }
   .featured-posts-wrapper { display: flex; flex-wrap: nowrap; gap: 1rem; overflow: hidden; scroll-behavior: smooth; scroll-snap-type: x mandatory; }
@@ -1035,14 +1036,14 @@
 
 <!-- Styles: Services section (layout + brand) -->
 <style>
-  .our-services-new { padding: clamp(3rem, 6vw, 5rem) 0; background: var(--brand-yellow); color: var(--brand-blue); }
+  .our-services-new { padding: clamp(3rem, 6vw, 5rem) 0; background: var(--brand-blue); color: var(--brand-lime); }
   .our-services-new .services-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.25rem; margin-bottom: 2rem; }
-  .our-services-new .services-main-title { color: var(--brand-blue); font-weight: 800; line-height: 1.1; margin: 0; }
+  .our-services-new .services-main-title { color: var(--brand-lime); font-weight: 800; line-height: 1.1; margin: 0; }
   .our-services-new .services-header-buttons { display: flex; gap: .75rem; flex-wrap: wrap; }
-  .our-services-new .btn-brand-primary { background: var(--brand-blue) !important; border-color: var(--brand-blue) !important; color: #fff !important; }
+  .our-services-new .btn-brand-primary { background: var(--cta-red) !important; border-color: var(--cta-red) !important; color: #fff !important; }
   .our-services-new .btn-brand-primary:hover { filter: brightness(1.05); box-shadow: 0 8px 18px rgba(11,94,142,.22); }
-  .our-services-new .btn-outline-secondary { border: 2px solid var(--brand-blue) !important; color: var(--brand-blue) !important; background: transparent !important; }
-  .our-services-new .btn-outline-secondary:hover { background: rgba(11,94,142,.08) !important; color: #052B44 !important; }
+  .our-services-new .btn-outline-secondary { border: 2px solid var(--brand-lime) !important; color: var(--brand-lime) !important; background: transparent !important; }
+  .our-services-new .btn-outline-secondary:hover { background: color-mix(in srgb, var(--brand-lime) 18%, transparent) !important; color: var(--brand-lime) !important; }
   .our-services-new .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
   .our-services-new .service-card-new { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(11,94,142,.15); transition: transform .2s ease, box-shadow .2s ease; display: block; }
   .our-services-new .service-card-new:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,.15); }
@@ -1123,8 +1124,8 @@
 <style>
   .why-choose-us {
     padding: clamp(4rem, 8vw, 6rem) 0;
-    background-color: var(--brand-red);
-    color: #fff;
+    background-color: var(--brand-blue);
+    color: var(--brand-lime);
   }
   
   .why-choose-us .image-container {
@@ -1194,7 +1195,7 @@
   }
   
   .why-choose-us .section-eyebrow {
-    color: #fff;
+    color: var(--brand-lime);
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -1205,7 +1206,7 @@
   .why-choose-us .section-title {
     font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: #fff;
+    color: var(--brand-lime);
     line-height: 1.2;
   }
   
@@ -1242,31 +1243,31 @@
   .why-choose-us .feature-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--brand-lime);
     margin: 0 0 0.5rem 0;
   }
   
   .why-choose-us .feature-description {
     font-size: 0.95rem;
-    color: rgba(255,255,255,0.9);
+    color: var(--brand-lime);
     line-height: 1.5;
     margin: 0;
   }
   
   .why-choose-us .btn-brand-primary {
-    background-color: #fff !important;
-    border-color: #fff !important;
+    background-color: var(--cta-red) !important;
+    border-color: var(--cta-red) !important;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     border-radius: 8px;
     transition: all 0.3s ease;
-    color: var(--brand-red) !important;
+    color: #fff !important;
   }
   
   .why-choose-us .btn-brand-primary:hover {
-    filter: brightness(0.95);
+    filter: brightness(1.05);
     transform: translateY(-2px);
-    color: var(--brand-red) !important;
+    color: #fff !important;
   }
   
   /* Responsive adjustments */
@@ -1321,11 +1322,17 @@
           { title: 'Driveway & Concrete Cleaning', url: '/' },
           { title: 'Commercial Washing', url: '/' }
         ];
+        const serviceImages = [
+          '/pictures/garage-gators/1.png',
+          '/pictures/garage-gators/2.png',
+          '/pictures/garage-gators/3.png',
+          '/pictures/garage-gators/4.png'
+        ];
         for (let i = 1; i <= 4; i++) { 
       %>
         <% const sTitle = (homepage && homepage[`featuredService${i}Title`]) || _defaults[i-1].title; %>
-        <% const sUrl = '/'; %>
-        <% const sImg = (homepage && homepage[`featuredService${i}Image`]) || ((i % 2 === 0) ? '/pictures/garage-gators/3.png' : '/pictures/garage-gators/2.png'); %>
+        <% const sUrl = (homepage && homepage[`featuredService${i}Url`]) || '/'; %>
+        <% const sImg = serviceImages[i-1] + '?v=1'; %>
         <a class="service-card-new" href="<%= sUrl %>">
           <div class="service-image">
             <img src="<%= sImg %>" alt="<%= sTitle %>" class="img-fluid">
@@ -1401,7 +1408,10 @@
 <!-- Page-scoped styles: Quick Facts infinite marquee -->
 <style>
   /* Tighten top spacing for the Quick Facts block */
-  section.our-stats { padding-top: 0.5rem !important; margin-top: 0 !important; }
+  section.our-stats { padding-top: 0.5rem !important; margin-top: 0 !important; background: var(--brand-blue) !important; color: var(--brand-lime) !important; }
+  section.our-stats h2.section-title { color: var(--brand-lime) !important; }
+  .our-stats .our-stats--stat h3.gradient,
+  .our-stats .our-stats--stat p { color: var(--brand-lime) !important; }
   section.our-stats .content-wrapper { padding-top: 0 !important; }
   section.our-stats .section-title { margin-top: 0 !important; margin-bottom: 0.75rem !important; }
   .our-stats .stats-scroller {
@@ -1461,19 +1471,40 @@
 					  <button class="blog-nav blog-nav--prev" type="button" aria-label="Previous posts">‹</button>
 					  <div class="featured-posts-wrapper" role="region" aria-label="Featured blog posts slider">
 							<% 
+							  const blogDefaults = [
+							    { 
+							      title: 'Buyer\u2019s Inspection Checklist: What We Look For',
+							      url: '/blog/buyers-inspection-checklist',
+							      image: '/pictures/garage-gators/1.png',
+							      excerpt: 'From roof to foundation22see the major systems we evaluate and how to prepare for an inspection.'
+							    },
+							    { 
+							      title: 'Pre1Listing Inspections: Sell With Confidence',
+							      url: '/blog/pre-listing-inspections',
+							      image: '/pictures/garage-gators/2.png',
+							      excerpt: 'How a pre1listing inspection reduces surprises, speeds closings, and builds buyer trust.'
+							    },
+							    { 
+							      title: '41Point vs Wind Mitigation: What1s the Difference?',
+							      url: '/blog/4-point-vs-wind-mitigation',
+							      image: '/pictures/garage-gators/3.png',
+							      excerpt: 'Insurance forms explained22why your carrier requests them and what each report includes.'
+							    }
+							  ];
 							  const posts = [];
 							  for (let i = 1; i <= 3; i++) {
-							    const pt = homepage && homepage[`blogFeat${i}Title`];
-							    const pu = homepage && homepage[`blogFeat${i}Url`];
-							    const pi = homepage && homepage[`blogFeat${i}Image`];
-							    const pe = homepage && homepage[`blogFeat${i}Excerpt`];
-							    if (pt && pu && pi) posts.push({ title: pt, url: pu, image: pi, excerpt: pe || '' });
+							    const d = blogDefaults[i-1];
+							    const pt = (homepage && homepage[`blogFeat${i}Title`]) || d.title;
+							    const pu = (homepage && homepage[`blogFeat${i}Url`]) || d.url;
+							    const pi = (homepage && homepage[`blogFeat${i}Image`]) || d.image;
+							    const pe = (homepage && homepage[`blogFeat${i}Excerpt`]) || d.excerpt || '';
+							    posts.push({ title: pt, url: pu, image: pi, excerpt: pe });
 							  }
 							%>
 							  <% posts.forEach(function(p){ %>
 							    <a href="<%= p.url %>" class="feat-post">
 							    	<article class="post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-							    		<div class="post-thumbnail"><img width="800" height="600" src="<%= p.image %>" class="attachment-post-thumbnail size-post-thumbnail" alt="" decoding="async" /></div>
+							    		<div class="post-thumbnail"><img width="800" height="600" src="<%= p.image %>?v=1" class="attachment-post-thumbnail size-post-thumbnail" alt="" decoding="async" /></div>
 							    		<div class="entry-summary"><h6 class="entry-title"><%= p.title %></h6><% if (p.excerpt) { %><p><%= p.excerpt %></p><% } %></div>
 							    	</article></a>
 							  <% }) %>
@@ -1605,6 +1636,9 @@
 
 <!-- Page-scoped styles: Review cards brand styling -->
 <style>
+  /* Reviews section wrapper colors */
+  #reviews { background: var(--brand-blue) !important; color: var(--brand-lime) !important; }
+  #reviews h2, #reviews h3, #reviews h4, #reviews h5, #reviews p, #reviews a { color: var(--brand-lime) !important; }
   /* Only the individual review cards, not the whole section */
   #reviews .resi-review .resi-review--inner {
     background-color: var(--brand-red) !important;
