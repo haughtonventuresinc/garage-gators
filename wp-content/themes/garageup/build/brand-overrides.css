@@ -1,14 +1,9 @@
 /* Brand color overrides: Garage Gators palette */
 :root {
   /* Core Garage Gators colors */
-  --brand-blue: #1E7A3A;   /* mapped to primary: deep gator green */
+  --brand-blue: #1E9637;   /* mapped to primary: updated gator green */
   --brand-lime: #F4D21F;   /* mapped to secondary: logo yellow */
   --brand-lime-rgb: 244, 210, 31; /* logo yellow as RGB for rgba() */
-  /* Map legacy tokens to new palette */
-  --brand-yellow: var(--brand-lime);
-  --brand-red: var(--brand-blue);
-  --brand-orange: var(--brand-lime);
-  --brand-dark: #0E3D1F;   /* deep green for dark text accents */
 }
 
   
@@ -229,21 +224,21 @@ section.blogFeat h4 {
   color: white !important;
 }
 
-/* Our Stats icons -> brand orange */
-/* Blog feature cards: yellow cards with brand-red text */
-.blogFeat .featured-posts-wrapper a.feat-post {
-  background: var(--brand-yellow) !important;
-  border-color: rgba(0,0,0,0) !important;
-}
-.blogFeat .featured-posts-wrapper a.feat-post .entry-summary,
-.blogFeat .featured-posts-wrapper a.feat-post .entry-summary h6,
-.blogFeat .featured-posts-wrapper a.feat-post .entry-summary p,
-.blogFeat .featured-posts-wrapper a.feat-post .entry-title {
-  color: var(--brand-red) !important;
-}
-.blogFeat .featured-posts-wrapper a.feat-post:hover {
-  background: color-mix(in srgb, var(--brand-yellow) 92%, #000 8%) !important;
-}
+  /* Our Stats icons -> brand orange */
+  /* Blog feature cards: yellow cards with green text */
+  .blogFeat .featured-posts-wrapper a.feat-post {
+    background: var(--brand-yellow) !important;
+    border-color: rgba(0,0,0,0) !important;
+  }
+  .blogFeat .featured-posts-wrapper a.feat-post .entry-summary,
+  .blogFeat .featured-posts-wrapper a.feat-post .entry-summary h6,
+  .blogFeat .featured-posts-wrapper a.feat-post .entry-summary p,
+  .blogFeat .featured-posts-wrapper a.feat-post .entry-title {
+    color: var(--brand-blue) !important;
+  }
+  .blogFeat .featured-posts-wrapper a.feat-post:hover {
+    background: color-mix(in srgb, var(--brand-yellow) 92%, #000 8%) !important;
+  }
 
 .blogFeat .featured-posts-wrapper { width: 100%; }
 @media (max-width: 576px) {
@@ -251,28 +246,36 @@ section.blogFeat h4 {
   .blogFeat .featured-posts-wrapper > a.feat-post { width: 100% !important; }
 }
 
-/* Blog feature: action buttons and nav should match Washology palette */
-.blogFeat .blog-slider .blog-nav,
-.blogFeat .blog-slider .blog-nav:disabled {
-  background: var(--brand-blue) !important;
-  color: #fff !important;
-}
-.blogFeat .blog-slider .blog-nav:hover,
-.blogFeat .blog-slider .blog-nav:focus {
-  filter: brightness(1.05);
+/* Global featured-posts card text color */
+.featured-posts-wrapper a.feat-post .entry-summary,
+.featured-posts-wrapper a.feat-post .entry-summary h6,
+.featured-posts-wrapper a.feat-post .entry-summary p,
+.featured-posts-wrapper a.feat-post .entry-title {
+  color: var(--brand-blue) !important;
 }
 
-/* Detail card primary action */
-.blogFeat .featured-post-detail .detail-actions .btn,
-.blogFeat .featured-post-detail .detail-actions a.btn,
-.blogFeat .featured-post-detail .detail-actions .btn-primary-dark {
-  background-color: var(--brand-blue) !important;
-  border-color: var(--brand-blue) !important;
-  color: #fff !important;
-}
-.blogFeat .featured-post-detail .detail-actions .btn:hover,
-.blogFeat .featured-post-detail .detail-actions .btn:focus {
-  filter: brightness(1.05);
+  /* Blog feature: action buttons and nav should match Washology palette */
+  .blogFeat .blog-slider .blog-nav,
+  .blogFeat .blog-slider .blog-nav:disabled {
+    background: var(--brand-blue) !important;
+    color: #fff !important;
+  }
+  .blogFeat .blog-slider .blog-nav:hover,
+  .blogFeat .blog-slider .blog-nav:focus {
+    filter: brightness(1.05);
+  }
+
+  /* Detail card primary action */
+  .blogFeat .featured-post-detail .detail-actions .btn,
+  .blogFeat .featured-post-detail .detail-actions a.btn,
+  .blogFeat .featured-post-detail .detail-actions .btn-primary-dark {
+    background-color: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
+    color: #fff !important;
+  }
+  .blogFeat .featured-post-detail .detail-actions .btn:hover,
+  .blogFeat .featured-post-detail .detail-actions .btn:focus {
+    filter: brightness(1.05);
   color: #fff !important;
 }
 

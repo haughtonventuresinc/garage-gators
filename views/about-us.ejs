@@ -157,8 +157,8 @@
       <section class="intro-wrapper bg-icon">
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 col-lg-5" style="color: var(--brand-red) !important;">
-              <h2 class="section-title"><%= (about && about.introTitle) || 'Our Story' %></h2>
+            <div class="col-sm-12 col-lg-5" style="color: var(--brand-blue) !important;">
+              <h2 class="section-title" style="color: var(--brand-blue) !important;"><%= (about && about.introTitle) || 'Our Story' %></h2>
               <% 
                 const introBody = (about && about.introBody) || '';
                 const introHasHtml = /<\w+[^>]*>/.test(introBody || '');
