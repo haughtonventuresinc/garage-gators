@@ -116,11 +116,11 @@
   .contact-page-v2 .content-wrapper-right .title-wrapper,
   .contact-page-v2 .bottom-form-wrapper .title-wrapper { text-align: center; }
 
-  /* Reviews: only cards are red; section keeps default background */
+  /* Reviews: set text to brand green (cards keep their background) */
   .contact-page-v2 .reviews-container .resi-reviews--inner { gap: 16px; }
   .contact-page-v2 .reviews-container .resi-review--inner {
     background: var(--brand-red) !important;
-    color: #fff !important;
+    color: var(--brand-blue) !important;
     border: 0;
     border-radius: 10px;
   }
@@ -133,7 +133,16 @@
   .contact-page-v2 .reviews-container .resi-review--inner h4,
   .contact-page-v2 .reviews-container .resi-review--inner h5,
   .contact-page-v2 .reviews-container .resi-review--inner h6,
-  .contact-page-v2 .reviews-container .resi-review--inner a { color: #fff !important; }
+  .contact-page-v2 .reviews-container .resi-review--inner a { color: var(--brand-blue) !important; }
+
+  /* Bottom form (Get An Estimate): make fonts green */
+  .contact-page-v2 .bottom-form-wrapper .title-wrapper h2 { color: var(--brand-blue) !important; }
+  .contact-page-v2 .bottom-form-wrapper .wpforms-field-label,
+  .contact-page-v2 .bottom-form-wrapper legend.wpforms-field-label { color: var(--brand-blue) !important; }
+  .contact-page-v2 .bottom-form-wrapper .wpforms-field-row-block label.after { color: var(--brand-blue) !important; }
+  .contact-page-v2 .bottom-form-wrapper .text-muted,
+  .contact-page-v2 .bottom-form-wrapper .wpforms-field-description,
+  .contact-page-v2 .bottom-form-wrapper .wpforms-field-sublabel.after { color: var(--brand-blue) !important; }
 </style>
 
 <div id="primary" class="content-area contact-page-v2 contact-page-v2-template">
@@ -149,16 +158,16 @@
       </div>
 
       <div class="content-bottom-wrapper col-sm-12">
-        <section class="content-wrapper-left col-sm-12 col-md-6 order-md-2" style="background: url(<%- (function(){ var src=(contact && contact.leftBg) || 'https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg'; if (src && !/^https?:\/\//.test(src) && src.charAt(0) !== '/') src='/' + src; return src; })() %>) center/cover no-repeat;">
-          <h3 style="color: white !important;"><%= (contact && contact.leftTitle) || 'Start Your Pool Service' %></h3>
-          <h4 style="color: white !important;"><b><%= (contact && contact.leftSubtitle) || 'Crystal-clear water. Stress-free maintenance.' %></b></h4>
+        <section class="content-wrapper-left col-sm-12 col-md-6 order-md-2" style="background: linear-gradient(rgba(var(--brand-lime-rgb),0.55), rgba(var(--brand-lime-rgb),0.55)), url(<%- (function(){ var src=(contact && contact.leftBg) || 'https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg'; if (src && !/^https?:\/\//.test(src) && src.charAt(0) !== '/') src='/' + src; return src; })() %>) center/cover no-repeat;">
+          <h3 style="color: #fff !important;"><%= (contact && contact.leftTitle) || 'Start Your Pool Service' %></h3>
+          <h4 style="color: #fff !important;"><b><%= (contact && contact.leftSubtitle) || 'Crystal-clear water. Stress-free maintenance.' %></b></h4>
           <ul>
-            <li style="color: white !important;"><%= (contact && contact.bullet1) || 'WEEKLY SERVICE' %></li>
-            <li style="color: white !important;"><%= (contact && contact.bullet2) || 'CHEMICAL BALANCING' %></li>
-            <li style="color: white !important;"><%= (contact && contact.bullet3) || 'FILTER CLEANING' %></li>
-            <li style="color: white !important;"><%= (contact && contact.bullet4) || 'GREEN POOL CLEANUP' %></li>
-            <li style="color: white !important;"><%= (contact && contact.bullet5) || 'EQUIPMENT REPAIRS' %></li>
-            <li style="color: white !important;"><%= (contact && contact.bullet6) || 'PUMP & HEATER SERVICE' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet1) || 'WEEKLY SERVICE' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet2) || 'CHEMICAL BALANCING' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet3) || 'FILTER CLEANING' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet4) || 'GREEN POOL CLEANUP' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet5) || 'EQUIPMENT REPAIRS' %></li>
+            <li style="color: #fff !important;"><%= (contact && contact.bullet6) || 'PUMP & HEATER SERVICE' %></li>
           </ul>
         </section>
 
@@ -181,9 +190,9 @@
     .zip-suggest .secondary { opacity: .85; font-size: .9rem; }
   </style>
 
-        <div class="content-wrapper-right col-sm-12 col-md-6 col-lg-6 order-md-1" style="background: var(--brand-blue);">
+        <div class="content-wrapper-right col-sm-12 col-md-6 col-lg-6 order-md-1" style="background: var(--brand-lime);">
           <div class="title-wrapper col-sm-12">
-            <h2 style="color: white !important;"><%= (contact && contact.rightTitle) || 'Estimates in 24 Hours or Less' %></h2>
+            <h2 style="color: var(--brand-blue) !important;"><%= (contact && contact.rightTitle) || 'Estimates in 24 Hours or Less' %></h2>
           </div>
 
           <!-- Accessible contact form preserving original look and CSS targets -->
@@ -191,7 +200,7 @@
             <form id="contactForm1" class="wpforms-form" method="post" action="/api/leads">
               <div class="wpforms-field-container">
                 <div class="wpforms-field">
-                  <label class="wpforms-field-label" for="contact-name" style="color: white !important;">Name <span aria-hidden="true" class="wpforms-required-label">*</span></label>
+                  <label class="wpforms-field-label" for="contact-name" style="color: var(--brand-blue) !important;">Name <span aria-hidden="true" class="wpforms-required-label">*</span></label>
                   <div class="wpforms-field-row">
                     <div class="wpforms-field-row-block wpforms-one-half">
                       <input type="text" id="contact-name-first" name="firstName" placeholder="First" required autocomplete="given-name" />
@@ -203,17 +212,17 @@
                 </div>
 
                 <div class="wpforms-field">
-                  <label class="wpforms-field-label" for="contact-phone" style="color: white !important;">Phone <span aria-hidden="true" class="wpforms-required-label">*</span></label>
+                  <label class="wpforms-field-label" for="contact-phone" style="color: var(--brand-blue) !important;">Phone <span aria-hidden="true" class="wpforms-required-label">*</span></label>
                   <input type="tel" id="contact-phone" name="phone" inputmode="tel" placeholder="(555) 555-5555" pattern="^\\+?[0-9\\s().-]{7,}$" required autocomplete="tel" />
                 </div>
 
                 <div class="wpforms-field">
-                  <label class="wpforms-field-label" for="contact-email" style="color: white !important;">Email <span aria-hidden="true" class="wpforms-required-label">*</span></label>
+                  <label class="wpforms-field-label" for="contact-email" style="color: var(--brand-blue) !important;">Email <span aria-hidden="true" class="wpforms-required-label">*</span></label>
                   <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email" />
                 </div>
 
                 <div class="wpforms-field">
-                  <label class="wpforms-field-label" for="contact-zip" style="color: white !important;">ZIP Code</label>
+                  <label class="wpforms-field-label" for="contact-zip" style="color: var(--brand-blue) !important;">ZIP Code</label>
                   <input type="text" id="contact-zip" name="zip" pattern="[0-9]{5}" maxlength="5" inputmode="numeric" placeholder="12345">
                   <input type="hidden" id="contact-city" name="city" value="">
                   <input type="hidden" id="contact-state" name="state" value="">
@@ -222,7 +231,7 @@
                 </div>
 
                 <div class="wpforms-field">
-                  <label class="wpforms-field-label" for="contact-message" style="color: white !important;">How can we help?</label>
+                  <label class="wpforms-field-label" for="contact-message" style="color: var(--brand-blue) !important;">How can we help?</label>
                   <textarea id="contact-message" name="message" rows="4" placeholder="Tell us about your pool and what you need..."></textarea>
                 </div>
               </div>
@@ -242,7 +251,7 @@
   <!-- Reviews Block (editable) -->
   <section class="bg-garageup-primary bg-icon reviews-container">
     <div class="container">
-      <h2 class="section-title text-center mb-5"><%= (contact && contact.reviewsTitle) || 'Discover our 5 Star Reputation' %></h2>
+      <h2 class="section-title text-center mb-5" style="color: var(--brand-blue) !important;"><%= (contact && contact.reviewsTitle) || 'Discover our 5 Star Reputation' %></h2>
       <section class="resi-reviews">
         <div class="container">
           <div class="resi-reviews--inner">

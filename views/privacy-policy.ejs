@@ -1,9 +1,20 @@
 <%- include('partials/header', { bodyClass: 'privacy-policy wp-singular page-template-default page wp-theme-resi-franchise wp-child-theme-garageup' }) %>
 <style>
-  /* Scoped style: affects only legal pages */
-  .legal-page { color: var(--brand-blue, #0B5E8E); }
-  .legal-page a { color: var(--brand-blue, #0B5E8E); text-decoration-color: var(--brand-blue, #0B5E8E); }
-  .legal-page h1, .legal-page h2, .legal-page h3, .legal-page h4, .legal-page h5, .legal-page h6 { color: var(--brand-blue, #0B5E8E); }
+  /* Scoped style: legal pages use brand yellow text for contrast on green bg */
+  .legal-page,
+  .legal-page * { color: var(--brand-lime) !important; }
+  .legal-page a {
+    color: var(--brand-lime) !important;
+    text-decoration-color: var(--brand-lime) !important;
+    text-underline-offset: 2px;
+  }
+  .legal-page a:hover, .legal-page a:focus { filter: brightness(1.05); }
+  .legal-page h1, .legal-page h2, .legal-page h3, .legal-page h4, .legal-page h5, .legal-page h6 {
+    color: var(--brand-lime) !important;
+    font-weight: 800;
+  }
+  .legal-page strong, .legal-page b { color: var(--brand-lime) !important; }
+  .legal-page ul li::marker, .legal-page ol li::marker { color: var(--brand-lime) !important; }
 </style>
 
 <div class="container mt-5 mb-5 page-defualt-template legal-page">
