@@ -146,5 +146,24 @@
     <script src="/wp-content/themes/garageup/build/zip-overrides.js"></script>
     <script id="wpforms-user-journey-js-extra">var wpforms_user_journey = { "is_ssl": "1", "page_id": "8" };</script>
     <script src="/wp-content/plugins/wpforms-user-journey/assets/js/wpforms-user-journey.min.js_ver=1.0.6" id="wpforms-user-journey-js"></script>
+    <script>
+      // Force Quick Facts (Our Stats) icon colors to brand yellow at runtime
+      document.addEventListener('DOMContentLoaded', function(){
+        try {
+          var BRAND_YELLOW = '%23F4D21F';
+          var nodes = document.querySelectorAll('.our-stats--stat--icon img');
+          nodes.forEach(function(img){
+            var src = img && img.getAttribute('src');
+            if (!src || src.indexOf('api.iconify.design') === -1) return;
+            if (src.indexOf('color=') > -1) {
+              src = src.replace(/color=[^&]+/, 'color=' + BRAND_YELLOW);
+            } else {
+              src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'color=' + BRAND_YELLOW;
+            }
+            img.setAttribute('src', src);
+          });
+        } catch (e) { /* no-op */ }
+      });
+    </script>
 </body>
 </html>

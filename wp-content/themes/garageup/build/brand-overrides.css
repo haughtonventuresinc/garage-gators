@@ -6,6 +6,12 @@
   --brand-lime-rgb: 244, 210, 31; /* logo yellow as RGB for rgba() */
 }
 
+/* Global site background -> brand green */
+html, body, #wrapper, .site, .page-defualt-template, .page-default-template {
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+}
+
   
 /* Text & links */
 /* Buttons */
@@ -103,7 +109,7 @@ section.overlay-jade:before {
 
 /* Get Started section overrides */
 .get-started {
-  background-color: var(--brand-red) !important;
+  background-color: var(--brand-blue) !important;
   /* ensure typography inherits orange */
   --bs-heading-color: var(--brand-orange);
   --bs-body-color: var(--brand-orange);
@@ -118,7 +124,7 @@ section.overlay-jade:before {
 .get-started p,
 .get-started a,
 .get-started .section-title {
-  color: white !important;
+  color: var(--brand-lime) !important;
 }
 
 /* Button inside Get Started block */
@@ -169,12 +175,43 @@ section.overlay-jade:before {
   fill: var(--brand-red) !important;
 }
 
+/* Override review cards: green background with white text */
+.resi-reviews .resi-review--inner {
+  background-color: var(--brand-blue) !important;
+  border-color: var(--brand-blue) !important;
+}
+
 .resi-reviews .resi-review--content,
 .resi-reviews .resi-review--content p,
 .reviews .resi-review--content,
 .reviews .resi-review--content p {
-  /* review text in brand orange */
-  color: var(--brand-orange) !important;
+  /* review text in white for readability on green */
+  color: #ffffff !important;
+}
+
+.resi-reviews .resi-review--author,
+.resi-reviews .resi-review--author h5,
+.reviews .resi-review--author {
+  /* review author in white */
+  color: #ffffff !important;
+}
+
+/* Override #reviews section review cards to use brand green background with green text */
+#reviews .resi-review .resi-review--inner {
+  background-color: var(--brand-blue) !important;
+  border-color: var(--brand-blue) !important;
+}
+
+#reviews .resi-review .resi-review--inner .resi-review--content,
+#reviews .resi-review .resi-review--inner .resi-review--content p,
+#reviews .resi-review .resi-review--inner .resi-review--author,
+#reviews .resi-review .resi-review--inner h5,
+#reviews .resi-review .resi-review--inner p {
+  color: var(--brand-blue) !important;
+}
+
+#reviews .resi-review .resi-review--inner a {
+  color: var(--brand-blue) !important;
 }
 
 /* Warranty page background */
@@ -225,19 +262,19 @@ section.blogFeat h4 {
 }
 
   /* Our Stats icons -> brand orange */
-  /* Blog feature cards: yellow cards with green text */
+  /* Blog feature cards: green cards with yellow text */
   .blogFeat .featured-posts-wrapper a.feat-post {
-    background: var(--brand-yellow) !important;
+    background: var(--brand-blue) !important;
     border-color: rgba(0,0,0,0) !important;
   }
   .blogFeat .featured-posts-wrapper a.feat-post .entry-summary,
   .blogFeat .featured-posts-wrapper a.feat-post .entry-summary h6,
   .blogFeat .featured-posts-wrapper a.feat-post .entry-summary p,
   .blogFeat .featured-posts-wrapper a.feat-post .entry-title {
-    color: var(--brand-blue) !important;
+    color: var(--brand-lime) !important;
   }
   .blogFeat .featured-posts-wrapper a.feat-post:hover {
-    background: color-mix(in srgb, var(--brand-yellow) 92%, #000 8%) !important;
+    background: color-mix(in srgb, var(--brand-blue) 92%, #000 8%) !important;
   }
 
 .blogFeat .featured-posts-wrapper { width: 100%; }
@@ -251,7 +288,7 @@ section.blogFeat h4 {
 .featured-posts-wrapper a.feat-post .entry-summary h6,
 .featured-posts-wrapper a.feat-post .entry-summary p,
 .featured-posts-wrapper a.feat-post .entry-title {
-  color: var(--brand-blue) !important;
+  color: var(--brand-lime) !important;
 }
 
   /* Blog feature: action buttons and nav should match Washology palette */
@@ -282,16 +319,31 @@ section.blogFeat h4 {
 /* All Posts button at bottom of section */
 .blogFeat .blogContent .text-center .btn.btn-primary,
 .blogFeat .blogContent .text-center a.btn.btn-primary {
-  background-color: var(--brand-blue) !important;
+  background-color: var(--brand-blue) !important; /* green */
   border-color: var(--brand-blue) !important;
-  color: #fff !important;
+  color: var(--brand-lime) !important; /* yellow text */
 }
 .blogFeat .blogContent .text-center .btn.btn-primary:hover,
 .blogFeat .blogContent .text-center .btn.btn-primary:focus {
   filter: brightness(1.05);
+  color: var(--brand-lime) !important;
 }
 
 .our-stats .our-stats--stat--icon img { filter: none !important; }
 /* Slight emphasis on hover/focus */
 .our-stats .our-stats--stat:hover .our-stats--stat--icon img,
 .our-stats .our-stats--stat:focus-within .our-stats--stat--icon img { filter: none !important; }
+
+/* Why Choose Us: testimonial card brand colors */
+.why-choose-us .testimonial-card {
+  background-color: var(--brand-blue) !important; /* green card */
+  backdrop-filter: none !important; /* disable glass effect */
+  color: var(--brand-lime) !important; /* default text color inside card */
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 85%, #000 15%) !important;
+}
+.why-choose-us .testimonial-card .testimonial-quote,
+.why-choose-us .testimonial-card .testimonial-author,
+.why-choose-us .testimonial-card .testimonial-author .author-name,
+.why-choose-us .testimonial-card .testimonial-author .author-location {
+  color: var(--brand-lime) !important; /* yellow text */
+}

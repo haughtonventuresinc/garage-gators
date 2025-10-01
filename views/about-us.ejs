@@ -120,11 +120,61 @@
       width: 52px; height: 52px; display: block; color: var(--brand-blue); fill: currentColor;
     }
 
-    /* Promise section: force all typography to white on red background */
-    .about-us-page-template .promise-wrapper,
-    .about-us-page-template .promise-wrapper * { color: #fff !important; }
-    /* Ensure the numeric badges are also white here (overrides earlier brand-red rule) */
-    .about-us-page-template .promise-wrapper .promise-card--number span { color: #fff !important; }
+    /* Core Values: yellow background + green text */
+    .about-us-page-template .core-values {
+      background: var(--brand-lime) !important; /* brand yellow */
+      color: var(--brand-blue) !important;      /* brand green text */
+      position: relative;
+    }
+    .about-us-page-template .core-values *,
+    .about-us-page-template .core-values .section-title,
+    .about-us-page-template .core-values h2,
+    .about-us-page-template .core-values h3,
+    .about-us-page-template .core-values p,
+    .about-us-page-template .core-values li,
+    .about-us-page-template .core-values a { color: var(--brand-blue) !important; }
+    /* Neutralize any theme overlays on bg-garageup-primary-dark */
+    .about-us-page-template .core-values.bg-garageup-primary-dark:before,
+    .about-us-page-template .core-values.bg-garageup-primary-dark::before,
+    .about-us-page-template .core-values.bg-garageup-primary-dark:after,
+    .about-us-page-template .core-values.bg-garageup-primary-dark::after {
+      background: none !important;
+      background-image: none !important;
+      content: none !important;
+      display: none !important;
+    }
+
+    /* Promise section: brand green background with brand yellow text */
+    .about-us-page-template .promise-wrapper {
+      background: var(--brand-blue) !important; /* green */
+      color: var(--brand-lime) !important;      /* yellow text */
+    }
+    .about-us-page-template .promise-wrapper *,
+    .about-us-page-template .promise-wrapper h2,
+    .about-us-page-template .promise-wrapper h3,
+    .about-us-page-template .promise-wrapper p,
+    .about-us-page-template .promise-wrapper a { color: var(--brand-lime) !important; }
+    /* Numeric badges to yellow as well */
+    .about-us-page-template .promise-wrapper .promise-card--number span { color: var(--brand-lime) !important; }
+
+    /* Remove white gap below Promises section */
+    .about-us-page-template .promise-wrapper { margin-bottom: 0 !important; }
+    .about-us-page-template .promise-wrapper .row.mt-5 { margin-bottom: 0 !important; }
+    .about-us-page-template .promise-wrapper + section { margin-top: 0 !important; }
+
+    /* Number circle: yellow bg with green text */
+    .about-us-page-template .promise-wrapper .promise-card--number span {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--brand-lime) !important; /* yellow circle */
+      color: var(--brand-blue) !important;      /* green number */
+      font-weight: 800;
+      line-height: 1;
+    }
 
     /* Remove hero overlay entirely */
     .about-us-page-template .hero.gradient-overlay:before,
@@ -132,6 +182,104 @@
     .about-us-page-template section.hero.hero-wrapper.gradient-overlay:before {
       content: none !important;
       background: none !important;
+    }
+
+    /* Re-enable: Semi-transparent yellow overlay on About hero */
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay {
+      position: relative !important;
+      z-index: 0 !important;
+      overflow: hidden; /* ensure pseudo elements don't spill */
+    }
+    /* Apply overlay to BOTH before and after to defeat theme gradient layers */
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay:before,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay::before,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay:after,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay::after,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay:before,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay::before,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay:after,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay::after {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: rgba(var(--brand-lime-rgb), 0.45) !important; /* slightly stronger for full cover */
+      background-image: none !important;
+      z-index: 10 !important; /* sit above any theme gradient bands */
+      pointer-events: none !important;
+    }
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay h1,
+    .about-us-page-template .hero.hero-wrapper.gradient-overlay h1 {
+      position: relative !important;
+      z-index: 1000 !important; /* above overlay */
+    }
+
+    /* About hero title: brand yellow font */
+    .about-us-page-template section.hero.hero-wrapper h1,
+    .about-us-page-template .hero.hero-wrapper h1 {
+      color: var(--brand-lime) !important;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    /* Ensure hero has real height for overlay to cover fully */
+    .about-us-page-template section.hero.hero-wrapper,
+    .about-us-page-template .hero.hero-wrapper {
+      min-height: 56vh; /* adjust as needed */
+      padding: clamp(60px, 10vh, 120px) 0;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Explicit element-based overlay to guarantee full cover */
+    .about-us-page-template .hero .hero-overlay.hero-overlay--yellow {
+      position: absolute !important;
+      inset: 0 !important;
+      background: rgba(var(--brand-lime-rgb), 0.45) !important;
+      pointer-events: none !important;
+      z-index: 999 !important; /* above any theme bands */
+    }
+
+    /* Kill any theme gradient pseudo-elements that may sit above our overlay */
+    .about-us-page-template .hero.gradient-overlay:before,
+    .about-us-page-template .hero.gradient-overlay::before,
+    .about-us-page-template .hero.gradient-overlay:after,
+    .about-us-page-template .hero.gradient-overlay::after,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay:before,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay::before,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay:after,
+    .about-us-page-template section.hero.hero-wrapper.gradient-overlay::after {
+      background: none !important;
+      background-image: none !important;
+      content: none !important;
+      display: none !important;
+    }
+
+    /* Intro (Our Story): green background with yellow text */
+    .about-us-page-template .intro-wrapper {
+      background: var(--brand-blue) !important; /* green */
+      color: var(--brand-lime) !important;      /* yellow text */
+      position: relative;
+    }
+    .about-us-page-template .intro-wrapper *,
+    .about-us-page-template .intro-wrapper .section-title,
+    .about-us-page-template .intro-wrapper h2,
+    .about-us-page-template .intro-wrapper p,
+    .about-us-page-template .intro-wrapper strong,
+    .about-us-page-template .intro-wrapper a {
+      color: var(--brand-lime) !important;
+    }
+    /* If bg-icon adds decorative images, mute them for solid color look */
+    .about-us-page-template .intro-wrapper.bg-icon:before,
+    .about-us-page-template .intro-wrapper.bg-icon::before,
+    .about-us-page-template .intro-wrapper.bg-icon:after,
+    .about-us-page-template .intro-wrapper.bg-icon::after {
+      background: none !important;
+      background-image: none !important;
+      content: none !important;
     }
   </style>
 
@@ -143,11 +291,12 @@
         const _isAbs = /^https?:\/\//i.test(_trimHero);
         const _safeHero = _trimHero
           ? (_isAbs ? _trimHero : ('/' + _trimHero.replace(/^\/+/, '')))
-          : '/pictures/garage-gators/2.png';
+          : '/pictures/garage-gators/4.png';
       %>
       <!-- Hero -->
       <section class="hero hero-wrapper gradient-overlay"
-        style="background-image: url('<%= _safeHero %>');">
+        style="position: relative; background-image: url('/pictures/garage-gators/4.png');">
+        <div class="hero-overlay hero-overlay--yellow" aria-hidden="true"></div>
         <h1><%= (about && about.heroTitle) || 'About Garage Gators' %></h1>
       </section>
 
@@ -160,7 +309,8 @@
             <div class="col-sm-12 col-lg-5" style="color: var(--brand-blue) !important;">
               <h2 class="section-title" style="color: var(--brand-blue) !important;"><%= (about && about.introTitle) || 'Our Story' %></h2>
               <% 
-                const introBody = (about && about.introBody) || '';
+                // Force brand copy: ignore CMS introBody on this page
+                const introBody = '';
                 const introHasHtml = /<\w+[^>]*>/.test(introBody || '');
                 if (introHasHtml) { %>
                   <%- introBody %>
@@ -175,9 +325,11 @@
                        <% } %>
                    <% });
                    } else { %>
-                     <p>At Garage Gators, our mission is to deliver dependable home services with a focus on garage repair and upgrades. From motors and openers to organization and lighting, we provide professional solutions and clear communication.</p>
-                     <p>We’re a friendly, trained team that takes pride in the details—so you can relax. Expect on‑time arrivals, photo updates, and consistent, professional service.</p>
-                     <p><strong>We’re growing across the region and remain focused on transparent communication, trusted results, and five‑star service—every visit.</strong></p>
+                     <p><strong>At Garage Gators, we deliver professional garage door repair and upgrades—from springs and cables to openers, tracks, rollers, and weather seals. Our licensed technicians arrive on time, perform a thorough inspection, explain options in plain language, and complete the job with high‑quality parts. We also offer organization systems, overhead storage, bright LED lighting, and preventative tune‑ups to keep your garage safe, quiet, and reliable all year long.</strong></p>
+                     <p><strong>Whether it’s a noisy door, a failing opener, or a full system replacement, you’ll get clear recommendations, fair pricing, and work that’s done right the first time. We treat your home with care, provide photo updates after every visit, and stand behind our work—so you can count on dependable results and five‑star service from a friendly, local team.</strong></p>
+                     <p><strong>We serve homeowners and small businesses across the region with same‑week scheduling and responsive support. From safety inspections and balance adjustments to keypad installs and smart‑home integrations, our goal is simple: a garage that looks great, runs smoothly, and works safely every day.</strong></p>
+                     <p><strong>Our preventative maintenance plans keep doors aligned, lubricated, and calibrated—catching small issues before they become expensive breakdowns. You pick the cadence, and we keep your system quiet and efficient season after season.</strong></p>
+                     
                    <% }
                  } %>
             </div>
@@ -243,11 +395,11 @@
       </section>
 
       <!-- The Garage Gators Way / Promises -->
-      <section class="promise-wrapper mb-5 bg-garageup-black" style="background-color: var(--brand-red) !important">
+      <section class="promise-wrapper mb-5 bg-garageup-black">
         <div class="container">
           <div class="row">
             <div class="title-wrapper col-sm-12 col-lg-5">
-              <h2 class="section-title" style="color: white !important;"><%= (about && about.wayTitle) || 'The Garage Gators Way' %></h2>
+              <h2 class="section-title" style="color: var(--brand-lime) !important;"><%= (about && about.wayTitle) || 'The Garage Gators Way' %></h2>
             </div>
             <div class="copy-wrapper col-sm-12 col-lg-7">
               <% 
